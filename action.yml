@@ -26,8 +26,8 @@ inputs:
     description: "The API base url to be used in requests to GitHub Enterprise"
     required: false
     default: "https://api.github.com"
-  ignore_suffix:
-    description: "Ignores branch names that end with this value."
+  ignore_prefix:
+    description: "Ignores branch names that start with this value."
     required: false
     default: ""
 
@@ -45,5 +45,5 @@ runs:
     - ${{ inputs.dry_run }}
     - ${{ inputs.github_token }}
     - ${{ inputs.github_base_url }}
-    - ${{ inputs.ignore_suffix }}
+    - ${{ inputs.ignore_prefix }}
 

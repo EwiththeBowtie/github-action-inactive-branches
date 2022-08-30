@@ -17,7 +17,7 @@ class Github:
     def get_paginated_branches_url(self, page: int = 0) -> str:
         return f'{self.github_base_url}/repos/{self.github_repo}/branches?protected=false&per_page=30&page={page}'
 
-    def get_deletable_branches(self, last_commit_age_days: int, ignore_branches: list, ignore_suffix: str) -> list:
+    def get_deletable_branches(self, last_commit_age_days: int, ignore_branches: list, ignore_prefix: str) -> list:
         # Default branch might not be protected
         default_branch = self.get_default_branch()
 
@@ -47,9 +47,9 @@ class Github:
                     print(f'Ignoring `{branch_name}` because it is the default branch')
                     continue
 
-                # Move on if branch name ends with $ignore_suffix
-                if branch_name.endswith(ignore_suffix):
-                    print(f'Ignoring `{branch_name}` because it ends with `{ignore_suffix}`')
+                # Move on if branch name ends with $ignore_prefix
+                if branch_name.startswith(ignore_prefix):
+                    print(f'Ignoring `{branch_name}` because it ends with `{ignore_prefix}`')
                     continue
 
                 # We're already retrieving non-protected branches from the API, but it pays being careful when dealing

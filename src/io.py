@@ -5,7 +5,7 @@ from typing import List
 
 
 
- # ignore_branches, last_commit_age_days, dry_run, github_token, github_base_url, github_repo, ignore_suffix = io.parse_input()
+ # ignore_branches, last_commit_age_days, dry_run, github_token, github_base_url, github_repo, ignore_prefix = io.parse_input()
 
 
 def parse_input() -> (list, int, bool, str, str, str, str):
@@ -33,9 +33,9 @@ def parse_input() -> (list, int, bool, str, str, str, str):
 
     github_base_url = args[5]
 
-    ignore_suffix = args[6]
+    ignore_prefix = args[6]
 
-    return ignore_branches, last_commit_age_days, dry_run, github_token, github_base_url, github_repo, ignore_suffix
+    return ignore_branches, last_commit_age_days, dry_run, github_token, github_base_url, github_repo, ignore_prefix
 
 
 def format_output(output_strings: dict) -> None:

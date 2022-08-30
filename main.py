@@ -1,8 +1,8 @@
 from src import actions, io
 
 if __name__ == '__main__':
-    ignore_branches, last_commit_age_days, dry_run, github_token, github_base_url, github_repo, ignore_suffix = io.parse_input()
-    print(ignore_suffix)
+    ignore_branches, last_commit_age_days, dry_run, github_token, github_base_url, github_repo, ignore_prefix = io.parse_input()
+    print(ignore_prefix)
     print(ignore_branches)
     print(last_commit_age_days)
     print(dry_run)
@@ -16,7 +16,7 @@ if __name__ == '__main__':
         github_repo=github_repo,
         github_token=github_token,
         github_base_url=github_base_url,
-        ignore_suffix=ignore_suffix
+        ignore_prefix=ignore_prefix
     )
 
     io.format_output({'deleted_branches': deleted_branches})
