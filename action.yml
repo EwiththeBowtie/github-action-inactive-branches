@@ -1,5 +1,5 @@
 # action.yml
-name: 'cleanup-old-branches-dmf'
+name: 'Trim Old Git Branches'
 description: |
   Deletes old branches from your repo as long as they aren't part of an open pull request, the default branch, or protected.
 author: Drew Foster
@@ -37,7 +37,8 @@ outputs:
 
 runs:
   using: 'docker'
-  image: 'docker://drewdecembertech/github-action-inactive-branches:latest'
+  dockerfile: 'Dockerfile'
+  
   args:
     - ${{ inputs.ignore_branches }}
     - ${{ inputs.last_commit_age_days }}
