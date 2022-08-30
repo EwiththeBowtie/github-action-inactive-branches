@@ -37,7 +37,7 @@ outputs:
 
 runs:
   using: 'docker'
-  dockerfile: 'Dockerfile'
+  image: 'Dockerfile'
   
   args:
     - ${{ inputs.ignore_branches }}
