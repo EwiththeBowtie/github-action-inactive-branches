@@ -2,7 +2,7 @@
 name: 'Trim Old Git Branches'
 description: |
   Deletes old branches from your repo as long as they aren't part of an open pull request, the default branch, or protected.
-author: Drew Foster
+author: Drew Foster, forked by @Ewiththebowtie
 branding:
   icon: git-branch
   color: purple
@@ -37,7 +37,7 @@ outputs:
 
 runs:
   using: 'docker'
-  dockerfile: 'Dockerfile'
+  image: 'Dockerfile'
   
   args:
     - ${{ inputs.ignore_branches }}
